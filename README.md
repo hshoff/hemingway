@@ -3,6 +3,8 @@ Hemingway
 
 A Chrome browser extension for hacking hackpad with custom hackpadery.
 
+![img](http://cl.ly/image/1v372N3g2a3d/Screen%20Shot%202013-10-26%20at%203.19.48%20PM.png)
+
 ## Easy Install
 
 1. Clone the repo to some `~/PATH/`

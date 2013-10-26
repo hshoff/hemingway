@@ -31,6 +31,18 @@ chrome.extension.sendMessage({}, function(response) {
           event.preventDefault();
           $commentButton.click();
         }
+      },{
+        shortcut: 'cmd+shift+f',
+        fn: function(event) {
+          event.preventDefault();
+          $body.toggleClass('focus');
+        }
+      },{
+        shortcut: 'esc',
+        fn: function(event) {
+          event.preventDefault();
+          $body.removeClass('focus');
+        }
       }
     ]);
 

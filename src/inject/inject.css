@@ -59,6 +59,23 @@
   font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 
+/* Focus Mode */
+.hemingway.focus {
+  background-image: none;
+  background: white !important;
+}
+.hemingway.focus #editor {
+  box-shadow: none;
+  border: none;
+}
+.hemingway.focus header,
+.hemingway.focus aside,
+.hemingway.focus footer,
+.hemingway.focus #feedbackbutton,
+.hemingway.focus #editorbottombox {
+  display: none;
+}
+
 
 /* Other Users */
 .hemingway #otheruserstable {

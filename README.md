@@ -3,7 +3,7 @@ Hemingway
 
 Hacking hackpad with custom hackpadery.
 
-# Easy Install
+## Easy Install
 
 1. Clone the repo to some `~/PATH/`
 2. Navigate to `chrome://extensions/` ([extensions](chrome://extensions/))

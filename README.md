@@ -19,6 +19,7 @@ Hemingway uses  `cmd` as the modifier. This overrides some regular Chrome browse
 - Indent: `cmd+]`
 - Outdent: `cmd+[`
 - Comment: `cmd+/`
+- Toggle Focus Mode: `cmd+shift+f`
 
 ## Threaded Comments
 

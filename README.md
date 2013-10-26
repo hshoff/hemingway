@@ -29,3 +29,7 @@ Hackpad doesn't nest `<ul>`s which is frustrating. Instead it applies classes to
 ## Inline code
 
 Using backticks to wrap `code`  styles code like github flavored markdown does.
+
+## Focus Mode
+
+Everything goes white.

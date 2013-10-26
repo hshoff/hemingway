@@ -7,6 +7,7 @@ chrome.extension.sendMessage({}, function(response) {
   		console.log("Howdy from Hemingway.");
 
       // Hemingway
+      document.getElementById('padbody').classList.add('hemingway');
 
 
   	}

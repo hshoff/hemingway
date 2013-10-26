@@ -1,0 +1,49 @@
+/* COMMENTS */
+.hemingway .list-comment1,
+.hemingway .list-comment2,
+.hemingway .list-comment3,
+.hemingway .list-comment4,
+.hemingway .list-comment5,
+.hemingway .list-comment6,
+.hemingway .list-comment7,
+.hemingway .list-comment8 {
+  border-left: 15px solid rgba(0,0,0,0.05);
+}
+.hemingway .list-comment2 { border-color: rgba(0,0,0,0.07); }
+.hemingway .list-comment3 { border-color: rgba(0,0,0,0.09); }
+.hemingway .list-comment4 { border-color: rgba(0,0,0,0.11); }
+.hemingway .list-comment5 { border-color: rgba(0,0,0,0.13); }
+.hemingway .list-comment6 { border-color: rgba(0,0,0,0.15); }
+.hemingway .list-comment7 { border-color: rgba(0,0,0,0.17); }
+.hemingway .list-comment8 { border-color: rgba(0,0,0,0.19); }
+
+.hemingway .list-comment1 li,
+.hemingway .list-comment2 li,
+.hemingway .list-comment3 li,
+.hemingway .list-comment4 li,
+.hemingway .list-comment5 li,
+.hemingway .list-comment6 li,
+.hemingway .list-comment7 li,
+.hemingway .list-comment8 li {
+  background-image: none;
+  background-color: white;
+  font-style: normal;
+  padding: 4px 0 5px 6px;
+  margin-left: 0;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.hemingway .list-comment1 li {
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+
+/* OTHER USERS */
+.hemingway #otheruserstable {
+  overflow: visible;
+}
+
+.hemingway #otheruserstable figcaption {
+  display: block;
+}

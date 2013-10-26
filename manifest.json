@@ -1,9 +1,9 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "Hemingway",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.io",
-  "homepage_url": "http://extensionizr.com",
+  "description": "Hacking hackpad with custom hackpadery",
+  "homepage_url": "http://github.com/hshoff/hemingway",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -27,12 +27,12 @@
     "notifications"
   ],
   "omnibox": {
-    "keyword": "extensionizr"
+    "keyword": "hem"
   },
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://*.hackpad.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -40,7 +40,7 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://*.hackpad.com/*"
       ],
       "js": [
         "src/inject/inject.js"

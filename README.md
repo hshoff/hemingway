@@ -35,3 +35,5 @@ Using backticks to wrap `code`  styles code like github flavored markdown does.
 ## Focus Mode
 
 Everything goes white.
+
+![img](http://cl.ly/image/1G1o2b3k2q3x/Screen%20Shot%202013-10-26%20at%203.24.45%20PM.png)

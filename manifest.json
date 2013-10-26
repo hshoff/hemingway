@@ -36,13 +36,10 @@
       ],
       "css": [
         "src/inject/inject.css"
-      ]
-    },
-    {
-      "matches": [
-        "https://*.hackpad.com/*"
       ],
       "js": [
+        "js/jquery/jquery.min.js",
+        "js/maestro/maestro.min.js",
         "src/inject/inject.js"
       ]
     }

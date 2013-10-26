@@ -11,21 +11,28 @@ chrome.extension.sendMessage({}, function(response) {
       var $body = $('#padbody'),
           $toolbar = $body.find('#mainbar'),
           $indentButton = $toolbar.find('#indentbutton'),
-          $outdentButton = $toolbar.find('#outdentbutton');
+          $outdentButton = $toolbar.find('#outdentbutton'),
+          $commentButton = $toolbar.find('#commentbutton');
 
       $body.addClass('hemingway');
 
       maestro.registerAll([{
-        shortcut: 'alt+[',
+        shortcut: 'cmd+[',
         fn: function(event) {
           event.preventDefault();
           $outdentButton.click();
         }
       },{
-        shortcut: 'alt+]',
+        shortcut: 'cmd+]',
         fn: function(event) {
           event.preventDefault();
           $indentButton.click();
+        }
+      },{
+        shortcut: 'cmd+/',
+        fn: function(event) {
+          event.preventDefault();
+          $commentButton.click();
         }
       }
     ]);

@@ -53,26 +53,26 @@
     };
     
     Store.prototype.removeAll = function () {
-        var name,
-            i;
-        
+        var name;
+        var i;
+
         name = "store." + this.name + ".";
         for (i = (localStorage.length - 1); i >= 0; i--) {
             if (localStorage.key(i).substring(0, name.length) === name) {
                 localStorage.removeItem(localStorage.key(i));
             }
         }
-        
+
         return this;
     };
     
     Store.prototype.toObject = function () {
-        var values,
-            name,
-            i,
-            key,
-            value;
-        
+        var values;
+        var name;
+        var i;
+        var key;
+        var value;
+
         values = {};
         name = "store." + this.name + ".";
         for (i = (localStorage.length - 1); i >= 0; i--) {
@@ -82,7 +82,7 @@
                 if (value !== undefined) { values[key] = value; }
             }
         }
-        
+
         return values;
     };
     

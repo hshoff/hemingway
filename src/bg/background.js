@@ -7,7 +7,7 @@
 
 //example of using a message handler from the inject scripts
 chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
+  (request, sender, sendResponse) => {
   	chrome.pageAction.show(sender.tab.id);
     sendResponse();
   }
@@ -16,7 +16,7 @@ chrome.extension.onMessage.addListener(
 // This event is fired each time the user updates the text in the omnibox,
 // as long as the extension's keyword mode is still active.
 chrome.omnibox.onInputChanged.addListener(
-  function(text, suggest) {
+  (text, suggest) => {
     suggest([
       {content: "https://hackpad.com/ep/pad/newpad", description: "New Hackpad"},
       {content: "https://hackpad.com/ep/profile/", description: "My Hackpads"}
@@ -27,8 +27,8 @@ chrome.omnibox.onInputChanged.addListener(
 
 // This event is fired with the user accepts the input in the omnibox.
 chrome.omnibox.onInputEntered.addListener(
-  function(text) {
-    chrome.tabs.getSelected(null, function(tab) {
+  text => {
+    chrome.tabs.getSelected(null, tab => {
       chrome.tabs.update(tab.id, {url: text});
     });
   }

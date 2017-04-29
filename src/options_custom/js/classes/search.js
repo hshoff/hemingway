@@ -9,8 +9,8 @@
         "groups": {},
 
         "initialize": function (search, searchResultContainer) {
-            var setting,
-                find;
+            var setting;
+            var find;
 
             this.search = search;
             this.searchResultContainer = searchResultContainer;
@@ -25,17 +25,17 @@
             this.nothingFound.bundle.set("id", "nothing-found");
 
             // Create event handlers
-            find = (function (event) {
+            find = event => {
                 this.find(event.target.get("value"));
-            }).bind(this);
+            };
 
-            this.search.addEvent("keyup", (function (event) {
+            this.search.addEvent("keyup", event => {
                 if (event.key === "esc") {
                     this.reset();
                 } else {
                     find(event);
                 }
-            }).bind(this));
+            });
             this.search.addEventListener("search", find, false);
         },
 
@@ -49,12 +49,12 @@
             searchSetting.original = setting;
             this.index.push(searchSetting);
 
-            setting.addEvent("action", function (value, stopPropagation) {
+            setting.addEvent("action", (value, stopPropagation) => {
                 if (searchSetting.set !== undefined && stopPropagation !== true) {
                     searchSetting.set(value, true);
                 }
             });
-            searchSetting.addEvent("action", function (value) {
+            searchSetting.addEvent("action", value => {
                 if (setting.set !== undefined) {
                     setting.set(value, true);
                 }
@@ -70,21 +70,21 @@
             }
 
             // Or enter search mode
-            this.index.each(function (setting) { setting.bundle.dispose(); });
-            Object.each(this.groups, function (group) { group.dispose(); });
+            this.index.each(setting => { setting.bundle.dispose(); });
+            Object.each(this.groups, group => { group.dispose(); });
             document.body.addClass("searching");
 
             // Filter settings
-            var result = this.index.filter(function (setting) {
+            var result = this.index.filter(setting => {
                 if (setting.params.searchString.contains(searchString.trim().toLowerCase())) {
                     return true;
                 }
             });
 
             // Display settings
-            result.each((function (setting) {
-                var group,
-                    row;
+            result.each(setting => {
+                var group;
+                var row;
 
                 // Create group if it doesn't exist already
                 if (this.groups[setting.params.group] === undefined) {
@@ -108,7 +108,7 @@
                 }
 
                 setting.bundle.inject(group.content);
-            }).bind(this));
+            });
 
             if (result.length === 0) {
                 this.nothingFound.bundle.addClass("show");

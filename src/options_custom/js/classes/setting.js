@@ -4,8 +4,8 @@
 // License: LGPL v2.1
 //
 (function () {
-    var settings,
-        Bundle;
+    var settings;
+    var Bundle;
 
     settings = new Store("settings");
     Bundle = new Class({
@@ -44,13 +44,13 @@
         },
 
         "addEvents": function () {
-            this.element.addEvent("change", (function (event) {
+            this.element.addEvent("change", event => {
                 if (this.params.name !== undefined) {
                     settings.set(this.params.name, this.get());
                 }
 
                 this.fireEvent("action", this.get());
-            }).bind(this));
+            });
         },
 
         "get": function () {
@@ -165,9 +165,9 @@
         },
 
         "addEvents": function () {
-            this.element.addEvent("click", (function () {
+            this.element.addEvent("click", () => {
                 this.fireEvent("action");
-            }).bind(this));
+            });
         }
     });
 
@@ -217,13 +217,13 @@
         },
 
         "addEvents": function () {
-            var change = (function (event) {
+            var change = event => {
                 if (this.params.name !== undefined) {
                     settings.set(this.params.name, this.get());
                 }
 
                 this.fireEvent("action", this.get());
-            }).bind(this);
+            };
 
             this.element.addEvent("change", change);
             this.element.addEvent("keyup", change);
@@ -360,7 +360,7 @@
         },
 
         "addEvents": function () {
-            this.element.addEvent("change", (function (event) {
+            this.element.addEvent("change", event => {
                 if (this.params.name !== undefined) {
                     settings.set(this.params.name, this.get());
                 }
@@ -371,7 +371,7 @@
                     this.display.set("text", this.get());
                 }
                 this.fireEvent("action", this.get());
-            }).bind(this));
+            });
         },
 
         "get": function () {
@@ -433,25 +433,25 @@
             // convert arrays
             if (typeOf(this.params.options) == "array") {
                 var values = [];
-                this.params.options.each((function(values, option) {
+                this.params.options.each((values, option) => {
                     values.push(arrayToObject(option));
-                }).bind(this, values));
+                });
                 this.params.options = { "values": values };
             }
 
             var groups;
             if (this.params.options.groups !== undefined) {
                 groups = {};
-                this.params.options.groups.each((function (groups, group) {
+                this.params.options.groups.each((groups, group) => {
                     this.params.searchString += (group) + "•";
                     groups[group] = (new Element("optgroup", {
                         "label": group,
                     }).inject(this.element));
-                }).bind(this, groups));
+                });
             }
 
             if (this.params.options.values !== undefined) {
-                this.params.options.values.each((function(groups, option) {
+                this.params.options.values.each((groups, option) => {
                     option = arrayToObject(option);
                     this.params.searchString += (option.text || option.value) + "•";
 
@@ -476,7 +476,7 @@
                         "value": option.value,
                         "text": option.text || option.value,
                     })).inject(parent);
-                }).bind(this, groups));
+                });
             }
         },
 
@@ -516,14 +516,14 @@
             });
 
             if (this.params.options === undefined) { return; }
-            this.params.options.each((function (option) {
+            this.params.options.each(option => {
                 this.params.searchString += (option.text || option.value) + "•";
 
                 (new Element("option", {
                     "value": option.value,
                     "text": option.text || option.value
                 })).inject(this.element);
-            }).bind(this));
+            });
         },
 
         "get": function () {
@@ -575,13 +575,13 @@
         },
 
         "addEvents": function () {
-            var change = (function (event) {
+            var change = event => {
                 if (this.params.name !== undefined) {
                     settings.set(this.params.name, this.get());
                 }
 
                 this.fireEvent("action", this.get());
-            }).bind(this);
+            };
 
             this.element.addEvent("change", change);
             this.element.addEvent("keyup", change);
@@ -609,9 +609,9 @@
             this.labels = [];
 
             if (this.params.options === undefined) { return; }
-            this.params.options.each((function (option) {
-                var optionID,
-                    container;
+            this.params.options.each(option => {
+                var optionID;
+                var container;
 
                 this.params.searchString += (option.text || option.value) + "•";
 
@@ -634,7 +634,7 @@
                     "for": optionID,
                     "text": option.text || option.value
                 })).inject(container));
-            }).bind(this));
+            });
         },
 
         "setupDOM": function () {
@@ -646,26 +646,22 @@
         },
 
         "addEvents": function () {
-            this.bundle.addEvent("change", (function (event) {
+            this.bundle.addEvent("change", event => {
                 if (this.params.name !== undefined) {
                     settings.set(this.params.name, this.get());
                 }
 
                 this.fireEvent("action", this.get());
-            }).bind(this));
+            });
         },
 
         "get": function () {
-            var checkedEl = this.elements.filter((function (el) {
-                return el.get("checked");
-            }).bind(this));
+            var checkedEl = this.elements.filter(el => el.get("checked"));
             return (checkedEl[0] && checkedEl[0].get("value"));
         },
 
         "set": function (value, noChangeEvent) {
-            var desiredEl = this.elements.filter((function (el) {
-                return (el.get("value") === value);
-            }).bind(this));
+            var desiredEl = this.elements.filter(el => el.get("value") === value);
             desiredEl[0] && desiredEl[0].set("checked", true);
 
             if (noChangeEvent !== true) {
@@ -682,8 +678,8 @@
         },
 
         "create": function (params) {
-            var types,
-                bundle;
+            var types;
+            var bundle;
 
             // Available types
             types = {

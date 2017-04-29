@@ -21,11 +21,11 @@
         },
 
         "create": function (params) {
-            var tab,
-                group,
-                row,
-                content,
-                bundle;
+            var tab;
+            var group;
+            var row;
+            var content;
+            var bundle;
 
             // Create tab if it doesn't exist already
             if (this.tabs[params.tab] === undefined) {
@@ -77,9 +77,9 @@
         },
 
         "align": function (settings) {
-            var types,
-                type,
-                maxWidth;
+            var types;
+            var type;
+            var maxWidth;
 
             types = [
                 "text",
@@ -94,7 +94,7 @@
                 throw "invalidType";
             }
 
-            settings.each(function (setting) {
+            settings.each(setting => {
                 if (setting.params.type !== type) {
                     throw "multipleTypes";
                 }
@@ -105,7 +105,7 @@
                 }
             });
 
-            settings.each(function (setting) {
+            settings.each(setting => {
                 var width = setting.label.offsetWidth;
                 if (width < maxWidth) {
                     if (type === "button" || type === "slider") {
@@ -120,14 +120,14 @@
         }
     });
 
-    FancySettings.__proto__.initWithManifest = function (callback) {
-        var settings,
-            output;
+    FancySettings.__proto__.initWithManifest = callback => {
+        var settings;
+        var output;
 
         settings = new FancySettings(manifest.name, manifest.icon);
         settings.manifest = {};
 
-        manifest.settings.each(function (params) {
+        manifest.settings.each(params => {
             output = settings.create(params);
             if (params.name !== undefined) {
                 settings.manifest[params.name] = output;
@@ -136,10 +136,8 @@
 
         if (manifest.alignment !== undefined) {
             document.body.addClass("measuring");
-            manifest.alignment.each(function (group) {
-                group = group.map(function (name) {
-                    return settings.manifest[name];
-                });
+            manifest.alignment.each(group => {
+                group = group.map(name => settings.manifest[name]);
                 settings.align(group);
             });
             document.body.removeClass("measuring");
